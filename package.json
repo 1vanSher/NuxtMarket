@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^1.15.2",
+    "@nuxtjs/style-resources": "^1.2.2",
+    "@types/node": "^25.5.0",
     "@typescript-eslint/eslint-plugin": "^8.34.1",
     "@typescript-eslint/parser": "^8.34.1",
     "eslint": "^9.29.0",
@@ -35,10 +37,13 @@
     "postcss-html": "^1.8.0",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.5.3",
+    "sass": "^1.98.0",
+    "sass-loader": "^16.0.7",
     "stylelint": "^16.21.0",
     "stylelint-config-recess-order": "^7.1.0",
     "stylelint-config-standard-scss": "^15.0.1",
-    "stylelint-config-standard-vue": "^1.0.0"
+    "stylelint-config-standard-vue": "^1.0.0",
+    "vite-tsconfig-paths": "^6.1.1"
   },
   "lint-staged": {
     "*.{js,ts,vue}": "eslint --fix",
