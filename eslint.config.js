@@ -33,6 +33,7 @@ export default [
 
     rules: {
       'no-empty': ['error', { allowEmptyCatch: true }],
+      'no-var': 'error',
       'no-restricted-imports': [
         'warn',
         {
