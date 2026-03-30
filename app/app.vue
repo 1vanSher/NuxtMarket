@@ -2,6 +2,7 @@
   <div>
     <p>Hi</p>
     <NuxtRouteAnnouncer />
+    <NuxtWelcome />
   </div>
 </template>
 <style lang="scss">
