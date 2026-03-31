@@ -1,8 +1,12 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-
-  css: ['~~/assets/styles/global.scss'], // только глобальные стили
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL ?? '',
+    },
+  },
+  css: ['~~/assets/styles/global.scss'],
 
   vite: {
     css: {
