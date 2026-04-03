@@ -3,7 +3,7 @@ import type { UseFetchOptions } from 'nuxt/app'
 
 export const useApiFetch = <DataT = unknown>(request: string, options?: UseFetchOptions<DataT>) => {
   const config = useRuntimeConfig()
-  const authToken = useCookie('authToken')
+  const authToken = useCookie<string | null>('authToken')
 
   if (!config.public.apiBaseUrl) {
     throw new Error('API_BASE_URL is not set')
