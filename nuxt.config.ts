@@ -6,6 +6,11 @@ export default defineNuxtConfig({
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL ?? '',
     },
   },
+  nitro: {
+    prerender: {
+      failOnError: false,
+    },
+  },
   css: ['~~/assets/styles/global.scss'],
 
   vite: {
