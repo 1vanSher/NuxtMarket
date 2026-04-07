@@ -11,6 +11,7 @@ export default defineNuxtConfig({
       failOnError: false,
     },
   },
+  modules: ['@pinia/nuxt'],
   css: ['~~/assets/styles/global.scss'],
 
   vite: {

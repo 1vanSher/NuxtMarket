@@ -1,13 +1,17 @@
 <script setup lang="ts">
-  defineProps<{
-    isOpen: boolean
+  import { useDrawerStore } from '~/stores/drawer'
+
+  const props = defineProps<{
+    name: string
   }>()
+
+  const drawer = useDrawerStore()
 </script>
 
 <template>
   <Teleport to="body">
     <Transition name="drawer">
-      <div v-if="isOpen" class="drawer">
+      <div v-if="drawer.isOpen(props.name)" class="drawer">
         <slot />
       </div>
     </Transition>
@@ -16,16 +20,19 @@
 
 <style scoped lang="scss">
   .drawer {
-    @media (width >= 425px) {
+    @media (width >= 769px) {
       display: none;
     }
 
     position: fixed;
     top: 48px;
     z-index: 101;
-    width: 282px;
+    box-sizing: border-box;
+    width: 100%;
     height: 100%;
     padding: 0 16px;
+    padding-right: 16px;
+    padding-left: 16px;
     overflow: hidden;
     background: #fff;
   }
