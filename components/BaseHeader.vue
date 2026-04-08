@@ -9,13 +9,13 @@
       <div class="header-inner__content header-inner-content">
         <HeaderNav class="header-inner-content__nav" />
         <span class="header-inner-content__span"><HeaderLine /></span>
-        <HeaderIcons class="header-inner-content__icons" />
+        <HeaderActions class="header-inner-content__icons" />
         <HeaderBurger class="header-inner-content__burger" />
       </div>
     </div>
   </header>
   <DrawerMenu name="menu">
-    <Search />
+    <SearchField />
     <MobileNav />
   </DrawerMenu>
 </template>

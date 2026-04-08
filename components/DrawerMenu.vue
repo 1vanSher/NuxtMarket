@@ -20,14 +20,11 @@
 
 <style scoped lang="scss">
   .drawer {
-    @media (width >= 769px) {
-      display: none;
-    }
-
     position: fixed;
     top: 48px;
     z-index: 101;
     box-sizing: border-box;
+    display: none;
     width: 100%;
     height: 100%;
     padding: 0 16px;
@@ -35,5 +32,9 @@
     padding-left: 16px;
     overflow: hidden;
     background: #fff;
+
+    @media (max-width: $bp-md) {
+      display: block;
+    }
   }
 </style>
