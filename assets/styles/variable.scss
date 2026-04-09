@@ -12,14 +12,15 @@
   --h3-fw: 400;
   --h3-lh: 26px;
 
-  --h4-fs: 20px;
+  --h4-fs: 33px;
   --h4-fw: 500;
-  --h4-lh: 20px;
+  --h4-lh: 43px;
+  --h4-ls: 0;
 
-  --h5-fs: 16px;
+  --h5-fs: 26px;
   --h5-fw: 400;
-  --h5-lh: 27px;
-  --h5-ls: 10px;
+  --h5-lh: 35px;
+  --h5-ls: 0;
 
   --body-lg-fs: 16px;
   --body-lg-fw: 700;
@@ -78,7 +79,7 @@
 
 // BREAKPOINT
 $bp-xs: 320px;
-$bp-sm: 480px;
+$bp-sm: 425px;
 $bp-md: 768px;
 $bp-lg: 1024px;
 $bp-xl: 1200px;
