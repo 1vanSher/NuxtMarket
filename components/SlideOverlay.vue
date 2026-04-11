@@ -1,8 +1,12 @@
+<script setup lang="ts">
+  import BaseButton from './ui/BaseButton.vue'
+</script>
+
 <template>
   <div class="overlay">
     <p class="overlay__title">Gold big hoops</p>
     <p class="overlay__price">$ 68.00</p>
-    <button class="overlay__btn">View Product</button>
+    <BaseButton variant="secondary"> View Product </BaseButton>
   </div>
 </template>
 <style scoped lang="scss">

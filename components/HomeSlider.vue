@@ -4,7 +4,9 @@
   import { Pagination, Autoplay } from 'swiper/modules'
   import 'swiper/css'
   import 'swiper/css/pagination'
-  const photos = useGetImages(10)
+
+  const SLIDES_COUNT = 10
+  const photos = useGetImages(SLIDES_COUNT)
 </script>
 
 <template>
@@ -36,10 +38,6 @@
     height: 646px;
     overflow: hidden;
     border-radius: 16px;
-
-    @media (max-width: $bp-md) {
-      margin: 0 16px;
-    }
 
     @media (max-width: $bp-sm) {
       height: 354px;
