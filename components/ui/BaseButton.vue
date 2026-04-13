@@ -1,0 +1,60 @@
+<script setup lang="ts">
+  type ButtonVariant = 'primary' | 'secondary'
+  withDefaults(
+    defineProps<{
+      variant?: ButtonVariant
+    }>(),
+    {
+      variant: 'primary',
+    },
+  )
+</script>
+
+<template>
+  <button type="button" class="btn" :class="`btn--${variant}`">
+    <slot />
+  </button>
+</template>
+<style scoped lang="scss">
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
+
+    &--primary {
+      color: var(--white);
+      background: var(--black);
+
+      &:hover {
+        background: var(--accent);
+      }
+
+      &:active {
+        background: var(--accent);
+      }
+    }
+
+    &--secondary {
+      color: var(--white);
+      background: transparent;
+      border: 1px solid var(--white);
+
+      &:hover {
+        color: #000;
+        background: var(--white);
+      }
+
+      &:active {
+        color: var(--black);
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+    }
+  }
+</style>
