@@ -23,7 +23,8 @@
   --h5-ls: 0;
 
   --body-lg-fs: 16px;
-  --body-lg-fw: 700;
+  --body-lg-fw: 400;
+  --body-lg-lh: 27px;
 
   --body-md-fs: 14px;
   --body-md-fw: 400;
@@ -63,7 +64,7 @@
 }
 
 // MOBILE HEADERS
-@media (max-width: 768px) {
+@media (max-width: 425px) {
   :root {
     --h1-fs: 20px;
     --h1-fw: 400;
@@ -71,9 +72,15 @@
 
     --h2-fs: 16px;
     --h2-lh: 27px;
-    --h2-ls: 10px;
+    --h1-lh: 22px;
 
     --h3-fs: 14px;
+    --h3-fw: 400;
+    --h3-lh: 22px;
+
+    --h4-fs: 12px;
+    --h4-fw: 400;
+    --h4-lh: 20px;
   }
 }
 
