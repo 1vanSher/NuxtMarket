@@ -5,16 +5,12 @@
     type?: string
     placeholder: string
     error?: string
+    class: string
   }>()
 </script>
 <template>
   <div class="input-wrapper">
-    <Input
-      :type="type"
-      :placeholder="placeholder"
-      :v-model="model"
-      :class="{ 'input--error': error }"
-    />
+    <input v-model="model" :type="type" :placeholder="placeholder" :class="class" />
     <span v-if="error" class="input__error">{{ error }}</span>
   </div>
 </template>

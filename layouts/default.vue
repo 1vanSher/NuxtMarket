@@ -10,5 +10,6 @@
       <slot />
     </main>
     <BaseFooter />
+    <BaseToast />
   </div>
 </template>
