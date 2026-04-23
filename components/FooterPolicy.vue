@@ -10,6 +10,12 @@
   .footer__policy {
     font-size: var(--body-lg-fs);
     line-height: var(--body-lg-lh);
+
+    @media (max-width: $bp-sm) {
+      width: 288px;
+      font-size: var(--body-sm-fs);
+      color: var(--dark-gray);
+    }
   }
 
   .footer__policy-link {

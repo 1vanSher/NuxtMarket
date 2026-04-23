@@ -16,6 +16,16 @@
   .footer-nav {
     display: flex;
     gap: 40px;
+
+    @media (max-width: $bp-md) {
+      gap: 10px;
+    }
+
+    @media (max-width: $bp-sm) {
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 40px;
+    }
   }
 
   .footer-nav-link {
@@ -23,5 +33,15 @@
     line-height: var(--body-lg-lh);
     color: var(--dark-gray);
     text-decoration: none;
+
+    @media (max-width: $bp-md) {
+      font-size: var(--body-md-fs);
+    }
+
+    @media (max-width: $bp-sm) {
+      width: 250px;
+      font-size: var(--body-sm-fs);
+      line-height: 20px;
+    }
   }
 </style>

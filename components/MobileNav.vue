@@ -38,7 +38,7 @@
       display: flex;
       gap: 12px;
       align-items: center;
-      font-size: var(--h4-fs);
+      font-size: 20px;
       color: inherit;
       text-decoration: none;
     }

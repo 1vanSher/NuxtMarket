@@ -21,13 +21,29 @@
     border-top: 1px solid #d8d8d8;
 
     @media (width <= 1272px) {
-      margin: 250px 24px;
+      margin: 250px 24px 100px;
+    }
+
+    @media (max-width: $bp-sm) {
+      box-sizing: border-box;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 16px;
+      margin: 70px 0 20px;
+      border: none;
     }
 
     &__section {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       width: 100%;
+
+      @media (max-width: $bp-sm) {
+        flex-flow: column-reverse wrap;
+        align-items: start;
+      }
     }
 
     &__section--top {
