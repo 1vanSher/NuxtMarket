@@ -34,7 +34,8 @@
   .slider-wrapper {
     display: flex;
     justify-content: center;
-    width: 1248px;
+    width: 100%;
+    max-width: 1248px;
     height: 646px;
     overflow: hidden;
     border-radius: 16px;
