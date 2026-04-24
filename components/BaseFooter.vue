@@ -36,12 +36,15 @@
 
     &__section {
       display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
       align-items: center;
       justify-content: space-between;
       width: 100%;
 
       @media (max-width: $bp-sm) {
         flex-flow: column-reverse wrap;
+        gap: 0;
         align-items: start;
       }
     }

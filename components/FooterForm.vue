@@ -5,6 +5,10 @@
   import BaseInput from './BaseInput.vue'
 
   const { email, emailError, submitEmail } = useEmailSubscription()
+
+  defineOptions({
+    inheritAttrs: false,
+  })
 </script>
 <template>
   <form class="footer-form" @submit.prevent="submitEmail">
@@ -56,42 +60,6 @@
       height: 26px;
       margin: 0 auto;
       font-size: var(--body-sm-fs);
-    }
-  }
-
-  .footer-form :deep(.input__error) {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: 4px;
-    font-size: var(--body-sm-fs);
-    color: red;
-  }
-
-  .footer-form :deep(.input-wrapper) {
-    position: relative;
-  }
-
-  .footer-form :deep(.footer__input) {
-    width: 370px;
-    padding-bottom: 8px;
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: 27px;
-    color: inherit;
-    appearance: none;
-    outline: none;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-
-    @media (max-width: $bp-md) {
-      max-width: 250px;
-    }
-
-    @media (max-width: $bp-sm) {
-      max-width: 263px;
     }
   }
 
