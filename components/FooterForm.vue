@@ -2,7 +2,7 @@
   import { useEmailSubscription } from '~/composables/useEmailSubscription'
 
   import ArrowForm from './icons/ArrowForm.vue'
-  import BaseInput from './BaseInput.vue'
+  import BaseInput from './ui/BaseInput.vue'
 
   const { email, emailError, submitEmail } = useEmailSubscription()
 </script>
