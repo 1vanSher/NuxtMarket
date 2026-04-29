@@ -1,31 +1,93 @@
 <script setup lang="ts">
-  import BaseButton from '~/components/ui/BaseButton.vue'
+  import { useRoute, useRouter } from 'vue-router'
+  import { computed, watch } from 'vue'
+  import type { Product } from '~/types/api'
   import { useGetAllProducts } from '~/composables/api/products/useGetAllProducts'
+  import { useToast } from '~/composables/useToast'
 
-  const PRODUCTS_LIMIT = 10
-  const { data: products, pending, error, refresh } = useGetAllProducts({ limit: PRODUCTS_LIMIT })
+  const route = useRoute()
+  const router = useRouter()
+
+  const { showToast } = useToast()
+  const PER_PAGE = 6
+
+  const { data: products, status, error } = useGetAllProducts()
+
+  watch(error, (val) => {
+    if (val) showToast(val.message, 'error')
+  })
+
+  const currentPage = computed(() => Number(route.query.page) || 1)
+
+  const paginatedProducts = computed(() => {
+    const start = (currentPage.value - 1) * PER_PAGE
+    return products.value?.slice(start, start + PER_PAGE) ?? []
+  })
+
+  const totalPages = computed(() => {
+    return Math.ceil((products.value?.length ?? 0) / PER_PAGE)
+  })
+
+  function setPage(page: number) {
+    router.push({ query: { page } })
+  }
+
+  function handleAddToCart(product: Product) {
+    showToast(`${product.title} added to cart`)
+  }
 </script>
 <template>
-  <div>
-    <div v-if="pending">Загрузка...</div>
+  <div class="page-content">
+    <div>
+      <ProductFilters />
+    </div>
+    <div>
+      <!-- Загрузка -->
+      <div v-if="status === 'pending'" class="skeletons">
+        <div v-for="n in 6" :key="n" class="skeleton" />
+      </div>
 
-    <div v-else-if="error">Произошла ошибка: {{ error.message }}</div>
+      <!-- Ошибка -->
+      <div v-else-if="status === 'error'" class="error">Не удалось загрузить товары</div>
 
-    <ul v-else class="products">
-      <li v-for="product in products" :key="product.id">
-        <p>{{ product.title }}</p>
-        <p>{{ product.description }}</p>
-        <div>
-          <img :src="product.image" alt="" width="200px" height="200px" />
-          <p>{{ product.price }} рублей</p>
-        </div>
-      </li>
-    </ul>
-
-    <BaseButton @click="refresh">Обновить данные</BaseButton>
+      <!-- Товары -->
+      <template v-else>
+        <ProductList :products="paginatedProducts" @add-to-cart="handleAddToCart" />
+        <AppPagination
+          :currentPage="currentPage"
+          :totalPages="totalPages"
+          @change="(page) => setPage(page)"
+        />
+      </template>
+    </div>
   </div>
 </template>
-<style>
+<style scoped lang="scss">
+  .skeletons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .skeleton {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 8px;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
   .wrapper {
     display: flex;
     justify-content: center;
@@ -36,5 +98,18 @@
     flex-wrap: wrap;
     gap: 50px;
     width: 500px;
+  }
+
+  .page-content {
+    box-sizing: border-box;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding: 0 16px;
+
+    @media (max-width: $bp-sm) {
+      display: block;
+      gap: 0;
+    }
   }
 </style>
