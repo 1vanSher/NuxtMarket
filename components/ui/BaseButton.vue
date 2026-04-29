@@ -41,13 +41,13 @@
     }
 
     &--secondary {
-      color: var(--white);
+      color: var(--black);
       background: transparent;
       border: 1px solid var(--white);
 
       &:hover {
         color: #000;
-        background: var(--white);
+        background: var(--secondary);
       }
 
       &:active {
